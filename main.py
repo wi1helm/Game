@@ -1,11 +1,12 @@
 import pygame
-from game import Game
-
+from game.game import Game
+from game.gameSettings import GameSettings
 def main():
 
-    resolution = (720,300)
+    settings = GameSettings((720,300), "Test Game")
 
-    game = Game(resolution)
+
+    game = Game(settings)
     game.start()
 
 
