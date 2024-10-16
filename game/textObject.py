@@ -1,13 +1,16 @@
 import pygame
 
-from game.fixedGameObject import FixedGameObject
+from game.objects.worldObject import WorldObject
 
-class TextObject(FixedGameObject):
+class TextObject(WorldObject):
 
-    def __init__(self, text : str, size : int, pos : tuple, textColor: tuple, backgroundColor : tuple = (255,255,255)) -> None:
+    def __init__(self, level : int, pos : tuple, text: str, size: int, textColor: tuple, backgroundColor : tuple = (255,255,255)) -> None:
+        super().__init__(level, pos)
+        self.create_text(text, size, textColor, backgroundColor)
+
+    def create_text(self, text : str, size : int, textColor: tuple, backgroundColor : tuple = (255,255,255)) -> None:
         self.text = text
         self.size = size
-        self.pos = pos
         self.textColor = textColor
         self.backgroundColor = backgroundColor
 

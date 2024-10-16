@@ -19,16 +19,16 @@ class Game:
         self.dt = 0 # Frame rate independent physics
         self.init_settings()
 
-        self.gameObjects = []
-        self.fixedGameObjects = []
-
-        self.fixedGameObjects.append(TextObject("Test", 30, (200,200),(0,20,0)))
-
+        self.entityObjects = []
+        self.worldObjects = []
+        self.worldObjects.append(TextObject(1,(200,200),"hello",30,(0,20,0)))
+        self.worldObjects.append(TextObject(0,(200,200),"Obama",30,(0,20,0)))
+        
     def set_running_state(self, state: bool):
         self.running = not state
 
     def get_game_objects(self):
-        return (self.gameObjects, self.fixedGameObjects)
+        return (self.entityObjects, self.worldObjects)
 
     def start(self):
         while self.running:
