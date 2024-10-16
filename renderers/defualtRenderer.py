@@ -10,9 +10,9 @@ class Renderer:
 
         screenObjects = self.objects[0] + self.objects[1]
         
-        sortedObjects = sorted(screenObjects, key= lambda obj: obj.getLevel())
+        sortedObjects = sorted(screenObjects, key= lambda obj: obj.get_level())
 
-        for object in sortedObjects:
-            object.draw(self.screen)
-        
+        for render_object in sortedObjects:
+            self.screen.blit(render_object.get_surface(), render_object.get_rect())
+
         pygame.display.update()

@@ -5,8 +5,8 @@ class GameSettings:
         self.name = name
     
 
-    def getResolution(self):
+    def get_resolution(self):
         return self.resolution
     
-    def getName(self):
+    def get_name(self):
         return self.name
