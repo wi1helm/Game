@@ -4,7 +4,7 @@ from game.gameSettings import GameSettings
 
 def main():
 
-    settings = GameSettings((1280,720), "Game")
+    settings = GameSettings((500,400), "EA Sports")
 
 
     game = Game(settings)

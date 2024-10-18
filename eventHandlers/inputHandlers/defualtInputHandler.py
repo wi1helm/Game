@@ -12,11 +12,21 @@ class InputHandler:
 
         keys = pygame.key.get_pressed()  # Get the state of all keys
 
-        if keys[pygame.K_w]:  # Move up if 'W' is pressed
-            self.call_back((0, -1))
-        if keys[pygame.K_s]:  # Move down if 'S' is pressed
-            self.call_back((0, 1))
-        if keys[pygame.K_d]:  # Move right if 'D' is pressed
-            self.call_back((1, 0))
-        if keys[pygame.K_a]:  # Move left if 'A' is pressed
-            self.call_back((-1, 0))
+        # Initialize the direction as (0, 0)
+        dir_x, dir_y = 0, 0
+
+        # Vertical movement logic
+        if keys[pygame.K_w] and not keys[pygame.K_s]:  # Move up if 'W' is pressed and 'S' is not
+            dir_y = -1
+        elif keys[pygame.K_s] and not keys[pygame.K_w]:  # Move down if 'S' is pressed and 'W' is not
+            dir_y = 1
+
+        # Horizontal movement logic
+        if keys[pygame.K_d] and not keys[pygame.K_a]:  # Move right if 'D' is pressed and 'A' is not
+            dir_x = 1
+        elif keys[pygame.K_a] and not keys[pygame.K_d]:  # Move left if 'A' is pressed and 'D' is not
+            dir_x = -1
+
+        # Call the callback function with the new direction
+        self.call_back((dir_x, dir_y))
+

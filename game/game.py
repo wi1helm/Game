@@ -36,7 +36,7 @@ class Game:
         self.entityObjects = []
         self.worldObjects = []
         self.worldObjects.append(TextObject(2,(400,400),"hello",30,(0,20,0)))
-        self.worldObjects.append(TextObject(4,(200,200),"Obama",30,(0,20,0)))
+        self.worldObjects.append(TextObject(4,(200,200),"Tjena",30,(0,20,0)))
         self.worldObjects.append(BackgroundObject(1,(0,0),(178,255,46), self.settings.get_resolution()))
 
 
