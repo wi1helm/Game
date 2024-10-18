@@ -8,8 +8,8 @@ class Player(EntityObject):
     def __init__(self, level: int, pos: tuple):
         super().__init__(level, pos)
         self.vel = [0, 0]  # Initial velocity
-        self.acc = [0.3, 0.3]
-        self.velMax = [4, 4]  # Maximum velocity
+        self.acc = [0.05, 0.05]
+        self.velMax = [7, 7]  # Maximum velocity
         
         self.rect = (100,100)
         self.surface = pygame.Surface((100,100))
