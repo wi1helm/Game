@@ -1,10 +1,16 @@
 import pygame
+
 from game.game import Game
 from game.gameSettings import GameSettings
+from utils.getScreenResolution import get_screen_resolution
+
 
 def main():
 
-    settings = GameSettings((500,400), "EA Sports")
+
+    resolution = get_screen_resolution()
+
+    settings = GameSettings(resolution, "EA Sports", True )
 
 
     game = Game(settings)

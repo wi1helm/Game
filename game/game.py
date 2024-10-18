@@ -23,7 +23,7 @@ class Game:
         self.renderer = Renderer(self.screen, self.get_game_objects)
 
         player = Player(3, (500, 500))
-        inputHandler = InputHandler(player.update_movement, player)
+        inputHandler = InputHandler(player.update_movement_acc, player)
 
         self.eventHandler.add_event(inputHandler.process_input)
         self.entityObjects.append(player)
@@ -37,7 +37,7 @@ class Game:
         self.worldObjects = []
         self.worldObjects.append(TextObject(2,(400,400),"hello",30,(0,20,0)))
         self.worldObjects.append(TextObject(4,(200,200),"Tjena",30,(0,20,0)))
-        self.worldObjects.append(BackgroundObject(1,(0,0),(178,255,46), self.settings.get_resolution()))
+        self.worldObjects.append(BackgroundObject(1,(0,0),(178,255,46), self.screen.get_size()))
 
 
 
@@ -63,6 +63,6 @@ class Game:
 
 
     def init_settings(self):
-        self.screen = pygame.display.set_mode(self.settings.get_resolution())
+        self.screen = pygame.display.set_mode(self.settings.get_resolution()) if not self.settings.is_fullscreen() else pygame.display.set_mode((0,0), pygame.FULLSCREEN)
         pygame.display.set_caption(self.settings.get_name())
 
